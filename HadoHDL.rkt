@@ -8,7 +8,7 @@
 
 {struct Module ([id : Identifier] [ports : (Listof Identifier)] [definitions : (Listof Definition)]) #:transparent}
 
-{define-type Definition (U Variable Parameter)}
+{define-type Definition (U Variable Parameter Always)}
 
 {struct Variable ([id : Identifier] [type : VariableType] [reg : Boolean] [range : VariableRange]) #:transparent}
 {define-type VariableType (U VariableType-Internal VariableType-Input VariableType-Output VariableType-Inout)}
@@ -46,3 +46,7 @@
 {struct ReductionXNOr ([x : Expression]) #:transparent}
 
 {struct Equal ([x : Expression] [y : Expression]) #:transparent}
+
+{struct Always ([when : Event] [body : (Listof Statement)]) #:transparent}
+{define-type Event (U)}
+{define-type Statement (U)}
